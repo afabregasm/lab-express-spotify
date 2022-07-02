@@ -1,14 +1,10 @@
-   {{#each track}}
+{{#each track}}
 <figure>
     <figcaption>Listen to {{name}}:</figcaption>
-
-    <audio
-        controls
-        src="{{preview_url}}">
-            Your browser does not support the
-            <code>audio</code> element.
-    </audio>
+        {{#if preview_url}}
+            <audio controls src="{{preview_url}}"></audio>
+        {{else}}
+        <p style="color:red">There's no preview for this song, sorry!</p>
+        {{/if}}
 </figure>
-
 {{/each}}
-
